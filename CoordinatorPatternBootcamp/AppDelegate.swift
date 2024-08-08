@@ -2,16 +2,13 @@
 //  AppDelegate.swift
 //  CoordinatorPatternBootcamp
 //
-//  Created by Ponthota, Viswanath Reddy (Cognizant) on 08/08/24.
+//  Created by Ponthota, Viswanath Reddy on 08/08/24.
 //
 
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
