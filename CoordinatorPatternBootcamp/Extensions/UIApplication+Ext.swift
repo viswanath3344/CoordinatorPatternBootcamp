@@ -26,6 +26,7 @@ extension UIApplication {
         } else {
             topViewController = keyWindow?.rootViewController
         }
+        
         while true {
             if let presented = topViewController?.presentedViewController {
                 topViewController = presented
@@ -38,10 +39,11 @@ extension UIApplication {
                 break
             }
         }
+        
         return topViewController
     }
     
     func topNavigationController() -> UINavigationController? {
-        return topViewController()?.navigationController
+         topViewController()?.navigationController
     }
 }

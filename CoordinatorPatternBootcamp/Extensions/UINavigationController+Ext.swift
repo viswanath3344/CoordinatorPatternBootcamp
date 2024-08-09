@@ -32,7 +32,10 @@ public extension UINavigationController {
     }
     
     
-    func customPopToRootViewController(direction: VCTransition = .fromTop, transitionType: CATransitionType = .push) {
+    func customPopToRootViewController(
+        direction: VCTransition = .fromTop,
+        transitionType: CATransitionType = .push
+    ) {
         self.addTransition(transitionDirection: direction, transitionType: transitionType)
         self.popToRootViewController(animated: false)
     }
@@ -43,7 +46,11 @@ public extension UINavigationController {
     - Parameters:
        -  viewController: The view controller that you want to be at the top of the stack. This view controller must currently be on the navigation stack.
     */
-    func customPopToViewController(viewController vc: UIViewController, direction: VCTransition = .fromTop, transitionType: CATransitionType = .push) {
+    func customPopToViewController(
+        viewController vc: UIViewController,
+        direction: VCTransition = .fromTop,
+        transitionType: CATransitionType = .push
+    ) {
         self.addTransition(transitionDirection: direction, transitionType: transitionType)
         self.popToViewController(vc, animated: false)
     }
@@ -52,21 +59,31 @@ public extension UINavigationController {
      Push a new view controller on the view controllers's stack.
      - Parameter vc: view controller to push.
      */
-    func customPushViewController(viewController vc: UIViewController, direction: VCTransition = .fromBottom, transitionType: CATransitionType = .push) {
+    func customPushViewController(
+        viewController vc: UIViewController,
+        direction: VCTransition = .fromBottom,
+        transitionType: CATransitionType = .push
+    ) {
         self.addTransition(transitionDirection: direction, transitionType: transitionType)
         self.pushViewController(vc, animated: false)
     }
 
-    private func addTransition(transitionDirection direction: VCTransition, transitionType: CATransitionType = .push, duration: CFTimeInterval = _durationTime) {
+    private func addTransition(
+        transitionDirection direction: VCTransition,
+        transitionType: CATransitionType = .push,
+        duration: CFTimeInterval = _durationTime
+    ) {
         let transition = CATransition()
         transition.duration = duration
         transition.type = transitionType
         transition.timingFunction = .init(name: .easeInEaseOut)
+        
         if direction == .fromBottom {
             transition.subtype = .fromBottom
         } else {
             transition.subtype = .fromTop
         }
+        
         self.view.layer.add(transition, forKey: kCATransition)
     }
 
