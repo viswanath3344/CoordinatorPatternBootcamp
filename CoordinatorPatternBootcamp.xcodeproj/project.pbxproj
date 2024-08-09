@@ -16,7 +16,11 @@
 		3FBC31CB2C64BF2200366269 /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31CA2C64BF2200366269 /* MainCordinator.swift */; };
 		3FBC31CD2C64CE8F00366269 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31CC2C64CE8F00366269 /* HomeViewController.swift */; };
 		3FBC31D12C64CEBE00366269 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31D02C64CEBE00366269 /* HomeCoordinator.swift */; };
-		3FBC31D32C64D2FB00366269 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31D22C64D2FB00366269 /* CoordinatorProtocol.swift */; };
+		3FBC31D32C64D2FB00366269 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31D22C64D2FB00366269 /* Coordinator.swift */; };
+		3FBC31D62C66079300366269 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31D52C66079300366269 /* UIApplication+Ext.swift */; };
+		3FBC31D82C6607CA00366269 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31D72C6607CA00366269 /* UINavigationController+Ext.swift */; };
+		3FBC31DB2C662FF000366269 /* ParentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31DA2C662FF000366269 /* ParentCoordinator.swift */; };
+		3FBC31DD2C6633B900366269 /* ChildCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBC31DC2C6633B900366269 /* ChildCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,11 @@
 		3FBC31CA2C64BF2200366269 /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		3FBC31CC2C64CE8F00366269 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3FBC31D02C64CEBE00366269 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		3FBC31D22C64D2FB00366269 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		3FBC31D22C64D2FB00366269 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3FBC31D52C66079300366269 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		3FBC31D72C6607CA00366269 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		3FBC31DA2C662FF000366269 /* ParentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCoordinator.swift; sourceTree = "<group>"; };
+		3FBC31DC2C6633B900366269 /* ChildCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		3FBC31B12C64BE2100366269 /* CoordinatorPatternBootcamp */ = {
 			isa = PBXGroup;
 			children = (
+				3FBC31D42C66077500366269 /* Extensions */,
 				3FBC31B22C64BE2100366269 /* AppDelegate.swift */,
 				3FBC31B42C64BE2100366269 /* SceneDelegate.swift */,
 				3FBC31CE2C64CE9800366269 /* ViewControllers */,
@@ -88,11 +97,30 @@
 		3FBC31CF2C64CEA400366269 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				3FBC31CA2C64BF2200366269 /* MainCordinator.swift */,
 				3FBC31D02C64CEBE00366269 /* HomeCoordinator.swift */,
-				3FBC31D22C64D2FB00366269 /* CoordinatorProtocol.swift */,
+				3FBC31CA2C64BF2200366269 /* MainCordinator.swift */,
+				3FBC31D92C662FC600366269 /* Protocols */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		3FBC31D42C66077500366269 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FBC31D52C66079300366269 /* UIApplication+Ext.swift */,
+				3FBC31D72C6607CA00366269 /* UINavigationController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3FBC31D92C662FC600366269 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3FBC31D22C64D2FB00366269 /* Coordinator.swift */,
+				3FBC31DA2C662FF000366269 /* ParentCoordinator.swift */,
+				3FBC31DC2C6633B900366269 /* ChildCoordinator.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,12 +194,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FBC31B32C64BE2100366269 /* AppDelegate.swift in Sources */,
+				3FBC31DD2C6633B900366269 /* ChildCoordinator.swift in Sources */,
+				3FBC31DB2C662FF000366269 /* ParentCoordinator.swift in Sources */,
 				3FBC31B52C64BE2100366269 /* SceneDelegate.swift in Sources */,
-				3FBC31D32C64D2FB00366269 /* CoordinatorProtocol.swift in Sources */,
+				3FBC31D32C64D2FB00366269 /* Coordinator.swift in Sources */,
 				3FBC31C92C64BF0900366269 /* SecondViewController.swift in Sources */,
 				3FBC31C72C64BEFC00366269 /* FirstViewController.swift in Sources */,
 				3FBC31D12C64CEBE00366269 /* HomeCoordinator.swift in Sources */,
+				3FBC31D82C6607CA00366269 /* UINavigationController+Ext.swift in Sources */,
 				3FBC31CD2C64CE8F00366269 /* HomeViewController.swift in Sources */,
+				3FBC31D62C66079300366269 /* UIApplication+Ext.swift in Sources */,
 				3FBC31CB2C64BF2200366269 /* MainCordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,9 +27,9 @@ final class FirstViewController: UIViewController {
     
     //MARK: Private Functions
     private func createNextButton() -> UIButton  {
-        let action = UIAction(title: "Next") { [weak self] action in
-            guard let self else { return }
-            self.coordinator?.startHomeJourney()
+        let action = UIAction(title: "Next") { [weak coordinator] action in
+            guard let coordinator else { return }
+            coordinator.goToSecondViewController()
         }
         
         let button = UIButton(primaryAction: action)

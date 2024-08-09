@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: ParentCoordinator {
     var childCoordinators = [Coordinator]()
     
     var navigationController: UINavigationController
@@ -16,26 +16,28 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(animated: Bool = true) {
         let firstViewController = FirstViewController()
         firstViewController.coordinator = self
-        navigationController.pushViewController(firstViewController, animated: true)
+        navigationController.pushViewController(firstViewController, animated: animated)
         
     }
     
-    func goToSecondViewController() {
+    func childDidFinish(_ childCoordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter {$0 !== childCoordinator}
+    }
+}
+
+extension MainCoordinator {
+    func goToSecondViewController(animated: Bool = true) {
         let secondViewController = SecondViewController()
         secondViewController.coordinator = self
-        navigationController.pushViewController(secondViewController, animated: true)
+        navigationController.pushViewController(secondViewController, animated: animated)
     }
     
     func startHomeJourney() {
         let homeCoordinator = HomeCoordinator(navigationController: navigationController)
         homeCoordinator.start()
-        childCoordinators.append(homeCoordinator)
-    }
-    
-    func childDidFinish(_ childCoordinator: Coordinator) {
-       // Implement the logic for remove the child coordinator remove from array
+        addChild(homeCoordinator)
     }
 }
